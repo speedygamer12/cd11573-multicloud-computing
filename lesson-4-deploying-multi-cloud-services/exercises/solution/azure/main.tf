@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "udacity" {
-  name     = "udacity-resources"
-  location = "US East 2"
+  name     = "Regroup_4gKqrgD_cn"
+  location = "eastus2"
 }
 
 resource "azurerm_storage_account" "example" {
