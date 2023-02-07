@@ -1,6 +1,5 @@
 data "azurerm_resource_group" "example" {
   name     = "Regroup_4gKqrgD_cn"
-  location = "West US"
 }
 
 ##### Your code starts here #####
