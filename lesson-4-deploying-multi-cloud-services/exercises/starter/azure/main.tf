@@ -1,4 +1,4 @@
-data "azurerm_resource_group" "udacity" {
+data "azurerm_resource_group" "example" {
   name     = "Regroup_4gKqrgD_cn"
 }
 
