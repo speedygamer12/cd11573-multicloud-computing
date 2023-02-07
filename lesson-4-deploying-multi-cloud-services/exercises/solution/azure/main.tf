@@ -4,7 +4,7 @@ data "azurerm_resource_group" "udacity" {
 
 resource "azurerm_storage_account" "example" {
   name                     = "udacityfunctionapp"
-  resource_group_name      = data.data.azurerm_resource_group.udacity.name
+  resource_group_name      = data.azurerm_resource_group.udacity.name
   location                 = data.azurerm_resource_group.udacity.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
