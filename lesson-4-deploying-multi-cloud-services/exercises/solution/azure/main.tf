@@ -28,7 +28,7 @@ resource "azurerm_windows_function_app" "example" {
   storage_account_access_key = azurerm_storage_account.example.primary_access_key
   service_plan_id            = azurerm_service_plan.example.id
 
-  application "stack" {
+  application_stack {
     powershell_core_version = 7
   }
   site_config {}
