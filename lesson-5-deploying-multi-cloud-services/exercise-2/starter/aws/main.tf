@@ -72,10 +72,6 @@ resource "aws_route_table_association" "private" {
 
 resource "aws_glacier_vault" "my_archive" {
   name = "MyArchive"
-
-  tags = {
-    Test = "MyArchive"
-  }
 }
 
 resource "aws_dynamodb_table" "basic-dynamodb-table" {
