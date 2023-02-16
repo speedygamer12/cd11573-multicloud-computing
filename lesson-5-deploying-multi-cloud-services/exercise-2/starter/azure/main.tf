@@ -1,8 +1,40 @@
 data "azurerm_resource_group" "example" {
-  name     = "Regroup_4gKqrgD_cn"
+  name     = "Regroup_4hEF_2G"
 }
 
 ##### Your code starts here #####
+
+resource "azurerm_kubernetes_cluster" "example" {
+  name                = "example-aks1"
+  location            = data.azurerm_resource_group.example.location
+  resource_group_name = data.azurerm_resource_group.example.name
+  dns_prefix          = "exampleaks1"
+
+  default_node_pool {
+    name       = "default"
+    node_count = 3
+    vm_size    = "Standard_D2s_v3"
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+
+  tags = {
+    Environment = "Production"
+  }
+}
+
+output "client_certificate" {
+  value     = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate
+  sensitive = true
+}
+
+output "kube_config" {
+  value = azurerm_kubernetes_cluster.example.kube_config_raw
+
+  sensitive = true
+}
 
 resource "azurerm_storage_account" "example" {
   name                     = "tscottoudacitystorage"
@@ -21,7 +53,7 @@ resource "azurerm_service_plan" "example" {
 }
 
 resource "azurerm_windows_function_app" "example" {
-  name                = "tscotto-udacity-example-windows-function-app"
+  name                = "tscotto-udacity-windows-function-app"
   resource_group_name = data.azurerm_resource_group.example.name
   location            = data.azurerm_resource_group.example.location
 
