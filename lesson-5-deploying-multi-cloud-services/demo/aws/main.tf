@@ -92,6 +92,6 @@ resource "aws_instance" "web" {
   subnet_id = aws_subnet.public[0].id
 
   tags = {
-    Name = "HelloWorld"
+    Name = "HelloWorld-Travis"
   }
 }
